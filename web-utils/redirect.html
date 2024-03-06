@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            window.addEventListener("load", (event) => {
+                let path = window.location.pathname;
+
+                if (path.endsWith('/')) {
+                    path += 'index.html';
+                }
+                else if(!path.includes('.')){
+                    path += '/index.html';
+                }
+                else {
+                    document.body.innerHTML = `Page does not exist! Go back to <a id="link" href="/index.html">home</a>.`;
+                    return;
+                }
+
+                setTimeout(() => {
+                    document.body.innerHTML = `If you are not redirected automatically, follow this <a id="link" href="${path}">link</a>.`;
+                }, 10000);
+
+                window.location.replace(path);
+            });
+        </script>
+        <title>Not found</title>
+    </head>
+    <body></body>
+</html>

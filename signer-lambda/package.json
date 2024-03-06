@@ -1,0 +1,14 @@
+{
+  "name": "signer-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "dependencies": {
+    "@aws-sdk/cloudfront-signer": "^3.485.0",
+    "google-auth-library": "^9.4.2"
+  }
+}

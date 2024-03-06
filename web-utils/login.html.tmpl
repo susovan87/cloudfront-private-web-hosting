@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script type="text/javascript">
+        // https://developers.google.com/identity/gsi/web/reference/js-reference
+        window.onload = function () {
+            const path = window.location.pathname;
+            const login_uri = "https://${domain_name}/auth/validate?cb=" + path;
+            google.accounts.id.initialize({
+                client_id: '${google_client_id}',
+                login_uri: login_uri,
+                auto_select: true,
+                ux_mode: 'redirect',
+                state_cookie_domain: '${domain_name}'
+            });
+            google.accounts.id.renderButton(document.getElementById("signinDiv"), {
+                theme: 'outline',
+                size: 'large'
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <main style="width:100%; display: flex; justify-content: center;">
+        <div class="container" style="margin-top: 10%;">
+            <h1 style="text-align: center;color: #333300;">Welcome!</h1>
+            <div id="signinDiv"></div>
+        </div>
+    </main>
+</body>
+</html>
